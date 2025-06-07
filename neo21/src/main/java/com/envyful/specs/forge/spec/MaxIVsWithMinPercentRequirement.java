@@ -9,7 +9,7 @@ import com.pixelmonmod.api.requirement.Requirement;
 import com.pixelmonmod.pixelmon.api.pokemon.Pokemon;
 import com.pixelmonmod.pixelmon.api.util.helpers.RandomHelper;
 import com.pixelmonmod.pixelmon.entities.pixelmon.PixelmonEntity;
-import net.minecraftforge.server.ServerLifecycleHooks;
+import net.neoforged.neoforge.server.ServerLifecycleHooks;
 
 import java.util.Collections;
 import java.util.List;
@@ -51,7 +51,7 @@ public class MaxIVsWithMinPercentRequirement extends AbstractPokemonRequirement<
             return ParseAttempt.error("Not enough data supplied for random iv generation");
         }
 
-        int maxIVCount = UtilParse.parseInteger(args[0]).orElse(-1);
+        int maxIVCount = UtilParse.parseInt(args[0]).orElse(-1);
 
         if (maxIVCount < 0 || maxIVCount > 6) {
             return ParseAttempt.error("Invalid max IV count. Must be between 0 and 6");
