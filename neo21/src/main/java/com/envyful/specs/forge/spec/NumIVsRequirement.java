@@ -7,6 +7,7 @@ import com.pixelmonmod.api.pokemon.requirement.AbstractIntegerPokemonRequirement
 import com.pixelmonmod.api.requirement.Requirement;
 import com.pixelmonmod.pixelmon.api.pokemon.Pokemon;
 import com.pixelmonmod.pixelmon.api.pokemon.stats.BattleStatsType;
+import com.pixelmonmod.pixelmon.api.pokemon.stats.IVStore;
 import com.pixelmonmod.pixelmon.entities.pixelmon.PixelmonEntity;
 
 import java.util.Set;
@@ -53,6 +54,8 @@ public class NumIVsRequirement extends AbstractIntegerPokemonRequirement {
         } else if (this.value > 6) {
             this.value = 6;
         }
+
+        pokemon.getIVs().copyIVs(IVStore.createRandomNewIVs());
 
         Set<BattleStatsType> givenTypes = Sets.newHashSet();
 
